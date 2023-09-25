@@ -1,6 +1,14 @@
 function verificaValidadeChute(chute) {
   // "+" Automaticamente converte para inteiro
   // Retorna NaN caso não seja convertido
+  if ("GAME OVER" == chute.toUpperCase()) {
+    document.body.innerHTML = `
+    <h2>Jogo encerrado sem acerto</h2>
+    <h3>O número secreto era ${numeroSecreto}</h3>
+    <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
+    `;
+    return;
+  }
   const numero = +chute;
   if (chuteNaoForNumerico(numero)) {
     elementoChute.innerHTML += "<div>Valor Inválido</div>";
